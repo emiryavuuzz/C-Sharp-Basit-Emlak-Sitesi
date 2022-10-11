@@ -1,0 +1,38 @@
+﻿
+
+<a href="/admin/Home/Index"><button style="margin:20px 0 0 30px; width:100px; height:40px;">Geri</button></a>
+
+<form action="/admin/UrunResim/Update/@Model.Id" method="post" enctype="multipart/form-data">
+    <h1 style="text-align:center;"><b> Çoklu Resim Yükleme</b></h1><br />
+    <br />
+    
+    @if (Model.ProductImages != null)
+    {
+    <div style="width:800px; text-align:center; margin:0 auto 0 auto;">
+    @foreach (var item in Model.ProductImages)
+    {
+         <img src="/images/@item.ImagesName" width="70px" height="70px;" style="margin-bottom:10px;" />
+        <input name="Images" value="@item.ImagesName" hidden />
+        <input name="imagesId" value="@item.Id" hidden/> 
+    }
+    </div>
+    }
+        
+    <input style="margin:40px 0 0 100px;" type="file" name="files" multiple /><br />
+    <br />
+    <input style="float:right; margin:0 30px 0 0; width:400px; height:50px;" type="submit" value="Kaydet" />
+    <img src="" />
+
+</form>
+@if (ViewBag.Message != null)
+{
+    <div>
+        <span style="border:solid; border:2px; border-inline-color:green;">@ViewBag.Message</span>
+    </div>
+}
+else if (ViewBag.Error != null)
+{
+    <div>
+        <span style="border:solid; border:2px;  border-color:darkgray; background-color:red; color:white;">@ViewBag.Error</span>
+    </div>
+}

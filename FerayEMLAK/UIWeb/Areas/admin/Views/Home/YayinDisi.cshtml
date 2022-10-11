@@ -1,0 +1,236 @@
+﻿
+<script class="u-script" type="text/javascript" src="/Adminassets/js/nicepage.js"></script>
+
+<section class="u-align-left u-clearfix u-section-1" id="sec-2d80">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width u-tab-links-align-justify u-tabs u-tabs-1">
+            <ul class="u-grey-5 u-spacing-30 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+                <li class="u-tab-item u-tab-item-1" role="presentation">
+                    <a class="active u-active-grey-40 u-button-style u-tab-link u-tab-link-1" id="link-tab-081f" href="#tab-081f" role="tab" aria-controls="tab-081f" aria-selected="true">İlanlar</a>
+                </li>
+
+                <li class="u-tab-item" role="presentation">
+                    <a class="u-active-grey-40 u-button-style u-tab-link u-tab-link-3" id="link-tab-3a42" href="#tab-3a42" role="tab" aria-controls="tab-3a42" aria-selected="false">Yayın Dışı İlanlar</a>
+                </li>
+                <li class="u-tab-item u-tab-item-2" role="presentation">
+                    <a class="u-active-grey-40 u-button-style u-tab-link u-tab-link-2" id="link-tab-4d57" href="#tab-4d57" role="tab" aria-controls="tab-4d57" aria-selected="false">Ziyaretçiler</a>
+                </li>
+                <li class="u-tab-item" role="presentation">
+                    <a class="u-active-grey-40 u-button-style u-tab-link u-tab-link-5" id="link-tab-c355" href="#tab-c355" role="tab" aria-controls="tab-c355" aria-selected="false">
+                        Üyeler<br>
+                    </a>
+                </li>
+            </ul>
+            <div class="u-tab-content">
+                <div class="u-container-style u-tab-active u-tab-pane u-tab-pane-1" id="tab-081f" role="tabpanel" aria-labelledby="link-tab-081f">
+                    <div class="u-container-layout u-container-layout-22">
+                        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                            <table class="u-table-entity">
+                                <colgroup>
+                                    <col width="14.2%">
+                                    <col width="48.8%">
+                                    <col width="13.1%">
+                                    <col width="13.1%">
+                                    <col width="15.1%">
+
+                                </colgroup>
+                                <thead class="u-black u-table-header u-table-header-1">
+                                    <tr style="height: 36px;">
+                                        <th class="u-border-1 u-border-black u-table-cell">Resim</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">İlan başlığı</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">Beğenme Sayısı</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">Görüntülenme Sayısı</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">İşlemler</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="u-table-body">
+                                    @foreach (var item in Model)
+                                    {
+                                       if (item.Status==false)
+                                        {
+                                             <tr style="height: 127px;">
+                                            <td class="u-border-1 u-border-grey-30 u-table-cell">@item.Images</td>
+                                            <td class="u-border-1 u-border-grey-30 u-table-cell">@item.Name</td>
+                                            <td style="text-align:center;" class="u-border-1 u-border-grey-30 u-table-cell">24</td>
+                                            <td style="text-align:center;" class="u-border-1 u-border-grey-30 u-table-cell">105</td>
+                                            <th class="u-border-1 u-border-black u-table-cell">
+                                                <button href="/admin/Home/Index" type="button" style="border-radius:30px; border-width:1px;">Düzenle</button>
+                                                <button href="/admin/Home/Index" type="button" style="margin-top:10px; border-radius:30px; border-width:1px;">Sil</button>
+                                            </th>
+                                        </tr>
+                                        }
+                                       
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <img class="u-image u-image-default u-image-9" src="images/3aec28cbc3cea525b36cccf5f19a50d4fbc7066a161208bcbbf75404cb397db5119f81f8acb2fc8b42c3d5f6031aa8503861110b0fa8fe2e42e0c6_1280.jpg" alt="" data-image-width="1280" data-image-height="853">
+                    </div>
+                </div>
+
+                <div class="u-container-style u-tab-pane" id="tab-3a42" role="tabpanel" aria-labelledby="link-tab-3a42">
+                    <div class="u-container-layout u-container-layout-22">
+                        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                            <table class="u-table-entity">
+                                <colgroup>
+                                    <col width="16.2%">
+                                    <col width="50.8%">
+                                    <col width="15.9%">
+                                    <col width="17.1%">
+                                </colgroup>
+                                <thead class="u-black u-table-header u-table-header-1">
+                                    <tr style="height: 36px;">
+                                        <th class="u-border-1 u-border-black u-table-cell">Resim</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">İlan başlığı</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">Beğenme Sayısı</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">Görüntülenme Sayısı</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="u-table-body">
+                                    @foreach (var item in Model)
+                                    {
+                                       if (item.Status!=false)
+                                        {
+                                             <tr style="height: 127px;">
+                                            <td class="u-border-1 u-border-grey-30 u-table-cell">@item.Images</td>
+                                            <td class="u-border-1 u-border-grey-30 u-table-cell">@item.Name</td>
+                                            <td style="text-align:center;" class="u-border-1 u-border-grey-30 u-table-cell">24</td>
+                                            <td style="text-align:center;" class="u-border-1 u-border-grey-30 u-table-cell">105</td>
+                                            <th class="u-border-1 u-border-black u-table-cell">
+                                                <button href="/admin/Home/Index" type="button" style="border-radius:30px; border-width:1px;">Düzenle</button>
+                                                <button href="/admin/Home/Index" type="button" style="margin-top:10px; border-radius:30px; border-width:1px;">Sil</button>
+                                            </th>
+                                        </tr>
+                                        }
+                                       
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <img class="u-image u-image-default u-image-9" src="images/3aec28cbc3cea525b36cccf5f19a50d4fbc7066a161208bcbbf75404cb397db5119f81f8acb2fc8b42c3d5f6031aa8503861110b0fa8fe2e42e0c6_1280.jpg" alt="" data-image-width="1280" data-image-height="853">
+                    </div>
+                </div>
+
+                @*  <div class="u-container-style u-tab-pane" id="link-tab-d7e7" role="tabpanel" aria-labelledby="tab-d7e7">
+                <div class="u-container-layout u-container-layout-22">
+                <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                <table class="u-table-entity">
+                <colgroup>
+                <col width="16.2%">
+                <col width="50.8%">
+                <col width="15.9%">
+                <col width="17.1%">
+                </colgroup>
+                <thead class="u-black u-table-header u-table-header-1">
+                <tr style="height: 36px;">
+                <th class="u-border-1 u-border-black u-table-cell">Resim</th>
+                <th class="u-border-1 u-border-black u-table-cell">İlan başlığı</th>
+                <th class="u-border-1 u-border-black u-table-cell">Beğenme Sayısı</th>
+                <th class="u-border-1 u-border-black u-table-cell">Görüntülenme Sayısı</th>
+                </tr>
+                </thead>
+                <tbody class="u-table-body">
+                <tr style="height: 127px;">
+                <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                </tr>
+                <tr style="height: 127px;">
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Row 2</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                </tr>
+                <tr style="height: 128px;">
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Row 3</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                </tr>
+                <tr style="height: 135px;">
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Row 4</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                <img class="u-image u-image-default u-image-9" src="images/3aec28cbc3cea525b36cccf5f19a50d4fbc7066a161208bcbbf75404cb397db5119f81f8acb2fc8b42c3d5f6031aa8503861110b0fa8fe2e42e0c6_1280.jpg" alt="" data-image-width="1280" data-image-height="853">
+                </div>
+                </div>*@
+                <div class="u-container-style u-tab-pane u-tab-pane-2" id="tab-4d57" role="tabpanel" aria-labelledby="link-tab-4d57">
+                    <div class="u-container-layout u-container-layout-10">
+                        <div class="u-align-center u-container-style u-group u-group-5">
+                            <div class="u-container-layout u-container-layout-11">
+                                <h2 class="u-text u-text-9">Siteyi Ziyaret Eden Sayısı</h2>
+                                <p class="u-text u-text-10">Bu Güne Kadar Siteyi Kaç Kişinin Ziyaret Ettiğini Gösterir</p>
+                            </div>
+                        </div>
+                        <div class="u-list u-list-1">
+                            <div class="u-repeater u-repeater-2">
+                                <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-layout u-similar-container u-container-layout-12">
+                                        <h1 class="u-text u-title u-text-11" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">92</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="u-container-style u-tab-pane" id="tab-c355" role="tabpanel" aria-labelledby="link-tab-c355">
+                    <div class="u-container-layout u-container-layout-23">
+                        <div class="u-table u-table-responsive u-table-2">
+                            <table class="u-table-entity">
+                                <colgroup>
+                                    <col width="25%">
+                                    <col width="25%">
+                                    <col width="25%">
+                                    <col width="25%">
+                                </colgroup>
+                                <thead class="u-black u-table-header u-table-header-2">
+                                    <tr style="height: 45px;">
+                                        <th class="u-border-1 u-border-black u-table-cell">İsim</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">Mail</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">Telefon</th>
+                                        <th class="u-border-1 u-border-black u-table-cell">Şifre</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="u-table-body">
+                                    <tr style="height: 53px;">
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">İsim</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                    </tr>
+                                    <tr style="height: 53px;">
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Row 2</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                    </tr>
+                                    <tr style="height: 53px;">
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Row 3</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                    </tr>
+                                    <tr style="height: 53px;">
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Row 4</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                        <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

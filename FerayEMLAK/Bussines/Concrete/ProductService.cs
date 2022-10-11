@@ -1,0 +1,18 @@
+﻿using DataAccess.Abstract;
+using DataAccess.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bussines.Abstract
+{
+    public class ProductService : Repository<Product> , IProductService
+    {
+        public ProductService(FerayContext context) : base(context)
+        {
+
+        }
+    }
+}

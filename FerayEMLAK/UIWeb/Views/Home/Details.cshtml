@@ -1,0 +1,77 @@
+﻿@model DataAccess.Models.Product
+
+<head>
+    <link rel="stylesheet" href="/Adminassets/css/Hakkında.css" media="screen">
+    <link rel="stylesheet" href="/Adminassets/css/nicepage.css" media="screen">
+    <script type="text/javascript" src="/Adminassets/js/jquery.js"></script>
+    <script type="text/javascript" src="/Adminassets/js/nicepage.js"></script>
+    <link href="/assets/dist/camroll_slider.css" rel="stylesheet">
+
+
+
+</head>
+@*Çoklu Fotoğraf Slider*@
+<div class="col-md-12">
+    <section style="margin-top:120px;" class="u-align-center u-clearfix u-section-1" id="sec-4dde">
+        <div width="400px" style="margin-top:250px; margin-bottom:100px;" class="u-clearfix u-sheet u-sheet-1">
+
+            <div style="margin-left:40px;" id="my-slider" class="crs-wrap">
+                <div style="margin-top:-250px;" class="crs-screen">
+                    <div class="crs-screen-roll">
+                        @if (Model.ProductImages != null)
+                        {
+                            @foreach (var item in Model.ProductImages)
+                            {
+                                <div class="crs-screen-item" style="background-image:url('/Images/@item.ImagesName')">
+                                    <div class="crs-screen-item-content"><h1></h1></div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="crs-bar">
+                    <div class="crs-bar-roll-current"></div>
+                    <div class="crs-bar-roll-wrap">
+                        <div class="crs-bar-roll">
+                            @foreach (var item in Model.ProductImages)
+                            {
+                                <div class="crs-bar-roll-item" style="background-image: url('/Images/@item.ImagesName')"></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="/assets/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+            <script src="/assets/dist/camroll_slider.js"></script>
+            <script>
+                $("#my-slider").camRollSlider();
+            </script>
+
+       
+            <h1 style="margin-top:-420px; font-size:2rem; font-weight:550; font-family:Arial;" class="u-text u-text-default u-text-1" >@Model.City  /  @Model.District </h1>
+
+            <p class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-2">@Model.Categories.Name</p>
+            <p class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-3">İlan Numarası: @Model.Id</p>
+            <p class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-4">@Model.Aim.Name</p>
+            <p class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-5">Bina Yaşı : @Model.Age</p>
+            <p class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-6">Oda Sayısı : @Model.Room</p>
+            <p class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-7">Kat : @Model.Floor</p>
+            <p class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-8">Kullanım Durumu : @Model.UsingStatus</p>
+            <p class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-9">Tapu Durumu : @Model.DeedStatus</p>
+            <p style="margin-top:20px;" class="u-custom-font u-font-georgia u-text u-text-grey-70 u-text-9">Ölçü : @Model.Olcu</p>
+            <h4 class="u-hover-feature u-text u-text-default u-text-10">Fiyatı : 7.000.000 TL</h4>
+          
+        </div>
+    </section>
+
+    <sections class="u-clearfix u-gradient u-section-2" id="sec-af52">
+        <div style="margin-top:-400px; margin-left:20px; margin-right:20px; background-color:#f3f3f3;" class="u-clearfix u-sheet u-sheet-1">
+            <h3 style="margin-left:500px;" class="u-text u-text-1 m">İlan Açıklaması</h3>
+            <h5 style="width:800px; text-align:center; line-height:25px; margin:30px 0 0 230px;" class="u-text u-text-default u-text-2">
+                @Model.Explanation
+            </h5>
+        </div>
+    </sections>
+
+</div>

@@ -1,0 +1,312 @@
+﻿<!-- ======= Intro Section ======= -->
+<div class="intro intro-carousel swiper position-relative">
+
+    <div class="swiper-wrapper">
+
+        @foreach (var item in Model)
+        {
+            if (item.Vitrin == true)
+            {
+                <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(/Images/@item.Images)">
+                    <div class="overlay overlay-a"></div>
+                    <div class="intro-content display-table">
+                        <div class="table-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="intro-body">
+                                            <p class="intro-title-top">
+                                                @item.City, @item.District
+
+                                            </p>
+                                            <h1 class="intro-title mb-4 ">
+                                               <a style="color:white;" href="/Home/Details/@item.Id"> <span class="color-b">@item.Id</span>
+                                                @if (item.Name.Length > 50)
+                                                {
+                                                    @Html.Raw(item.Name.Substring(0,46));
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(item.Name);
+                                                }
+                                                </a>
+                                            </h1>
+                                            <p class="intro-subtitle intro-price">
+                                                <a href="/Home/Details/@item.Id"><span class="price-a">@item.Aim.Name | @item.Price.ToString("C")</span></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+        
+    </div>
+
+    <div class="swiper-pagination"></div>
+</div><!-- End Intro Section -->
+
+<main id="main">
+
+
+    <!-- ======= Latest Properties Section ======= -->
+    <section class="section-property section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Son Eklenen İlanlar</h2>
+                        </div>
+
+
+
+                        <div class="title-link">
+                            <a href="/Home/Ilanlar">
+                                Tüm İlanlar
+                                <span class="bi bi-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="property-carousel" class="swiper">
+                <div class="swiper-wrapper">
+                    @foreach (var item in Model)
+                    {
+                        if (item.Status == true)
+                        {
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    <img src="/Images/@item.Images" alt="" class="img-a img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a style="font-size:20px;" href="/Home/Details/@item.Id">@item.Name</a>
+                                            </h2>
+                                        </div>
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">@item.Aim.Name | @item.Price.ToString("C")</span>
+                                            </div>
+                                            <a href="/Home/Details/@item.Id" class="link-a">
+                                                Daha Detaylı İncelemek İçin
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Alan</h4>
+                                                    <span>
+                                                        @item.Olcu M
+                                                        <sup>2</sup>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Oda</h4>
+                                                    <span>@item.Room</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">İl</h4>
+                                                    <span>@item.City</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">İlçe</h4>
+                                                    <span>@item.District</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End carousel item -->
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="propery-carousel-pagination carousel-pagination"></div>
+
+        </div>
+    </section><!-- End Latest Properties Section -->
+    <!-- ======= Latest News Section ======= -->
+    <section class="section-news section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">İlginizi Çekebilecek Haberler</h2>
+                        </div>
+                        <div class="title-link">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="news-carousel" class="swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="carousel-item-c swiper-slide">
+                        <div class="card-box-b card-shadow news-box">
+                            <div class="img-box-b">
+                                <img src="/assets/img/post-2.jpg" alt="" class="img-b img-fluid">
+                            </div>
+                            <div class="card-overlay">
+                                <div class="card-header-b">
+                                    <div class="card-category-b">
+                                        <a href="#" class="category-b">Emlak</a>
+                                    </div>
+                                    <div class="card-title-b">
+                                        <h2 class="title-2">
+                                            <a href="https://www.emlak365.com/emlak-haberleri/ev-sahipleri-ve-kiracilara-kotu-haber-resmi-gazetede-az-once-yayimlandi-yuzde-100-zam-geldi-191137">Ev sahipleri ve kiracılara kötü haber! Resmi Gazete'de az önce yayımlandı yüzde 100 zam geldi</a>
+                                        </h2>
+                                    </div>
+                                    <div class="card-date">
+                                        <span class="date-b">2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End carousel item -->
+
+                    <div class="carousel-item-c swiper-slide">
+                        <div class="card-box-b card-shadow news-box">
+                            <div class="img-box-b">
+                                <img src="/assets/img/post-5.jpg" alt="" class="img-b img-fluid">
+                            </div>
+                            <div class="card-overlay">
+                                <div class="card-header-b">
+                                    <div class="card-category-b">
+                                        <a href="#" class="category-b">Emlak</a>
+                                    </div>
+                                    <div class="card-title-b">
+                                        <h2 class="title-2">
+                                            <a href="https://www.emlak365.com/emlak-haberleri/izmir-cevre-ve-sehircilik-il-mudurlugu-duyurdu-izmirde-satilik-lojmanlar-icin-yeni-ilan-yayimlandi-191132">İzmir Çevre ve Şehircilik İl Müdürlüğü duyurdu! İzmir'de satılık lojmanlar için yeni ilan yayımlandı</a>
+                                        </h2>
+                                    </div>
+                                    <div class="card-date">
+                                        <span class="date-b">2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End carousel item -->
+
+                    <div class="carousel-item-c swiper-slide">
+                        <div class="card-box-b card-shadow news-box">
+                            <div class="img-box-b">
+                                <img src="/assets/img/post-7.jpg" alt="" class="img-b img-fluid">
+                            </div>
+                            <div class="card-overlay">
+                                <div class="card-header-b">
+                                    <div class="card-category-b">
+                                        <a href="#" class="category-b">Emlak</a>
+                                    </div>
+                                    <div class="card-title-b">
+                                        <h2 class="title-2">
+                                            <a href="https://www.emlak365.com/emlak-haberleri/konut-metrekare-insaat-maliyetlerinde-son-durum-2023te-konut-fiyatlari-dusecek-mi-191101">Konut metrekare inşaat maliyetlerinde son durum! 2023'te konut fiyatları düşecek mi?</a>
+                                        </h2>
+                                    </div>
+                                    <div class="card-date">
+                                        <span class="date-b">2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End carousel item -->
+
+                    <div class="carousel-item-c swiper-slide">
+                        <div class="card-box-b card-shadow news-box">
+                            <div class="img-box-b">
+                                <img src="/assets/img/post-3.jpg" alt="" class="img-b img-fluid">
+                            </div>
+                            <div class="card-overlay">
+                                <div class="card-header-b">
+                                    <div class="card-category-b">
+                                        <a href="#" class="category-b">Emlak</a>
+                                    </div>
+                                    <div class="card-title-b">
+                                        <h2 class="title-2">
+                                            <a href="https://www.emlak365.com/toki/cevre-bakani-murat-kurumdan-toki-sosyal-konut-projesi-1-milyon-arsa-aciklamasi-191100">Çevre Bakanı Murat Kurum'dan TOKİ sosyal konut projesi 1 milyon arsa açıklaması!</a>
+                                        </h2>
+                                    </div>
+                                    <div class="card-date">
+                                        <span class="date-b">2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End carousel item -->
+
+                </div>
+            </div>
+
+            <div class="news-carousel-pagination carousel-pagination"></div>
+        </div>
+    </section><!-- End Latest News Section -->
+    <!-- ======= Testimonials Section ======= -->
+    <section class="section-testimonials section-t8 nav-arrow-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a" id="Hakkında">Hakkımızda</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="testimonial-carousel" class="swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="carousel-item-a">
+                        <div class="testimonials-box">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="testimonial-img">
+                                        <img src="/Images/emlaksatis.kritikadim-780x520.jpg" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="testimonial-ico">
+                                        <i class="bi bi-chat-quote-fill"></i>
+                                    </div>
+                                    <div class="testimonials-content">
+                                        <p class="testimonial-text">
+                                            İstanbul'da Kurulmuş 2012 Yılından Beri Hizmette Olan Ofisimiz Daha Uzun yıllar Hizmetinizde Olmayı Hedeflemektedir.
+                                            Ofisimizin En büyük Gayesi Müşteri Memnuniyeti Ve En Az Uğraş İle Gayrimenkul Sahibi Yapmak.
+
+                                        </p>
+                                    </div>
+                                    <div class="testimonial-author-box">
+                                        <img src="/assets/img/FerayEmlakSitebaslık.png" alt="" class="testimonial-avatar">
+                                        <h5 class="testimonial-author">FERAY EMLAK</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End carousel item -->
+
+
+
+                </div>
+            </div>
+            <div class="testimonial-carousel-pagination carousel-pagination" id="Iletisim"></div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+</main><!-- End #main -->
